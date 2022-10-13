@@ -44,7 +44,7 @@ class ChannelReducer(object):
         Inputs:
           n_components: Number of dimensions to reduce inner most dimension to.
           reduction_alg: A string or sklearn.decomposition class. Defaults to
-            "NMF" (non-negative matrix facotrization). Other options include:
+            "NMF" (non-negative matrix factorization). Other options include:
             "PCA", "FastICA", and "MiniBatchDictionaryLearning". The name of any of
             the sklearn.decomposition classes will work, though.
           kwargs: Additional kwargs to be passed on to the reducer.
@@ -75,9 +75,9 @@ class ChannelReducer(object):
     @classmethod
     def _apply_flat(cls, f, acts):
         """
-        Utility for applying f to inner dimension of acts.
-        Flattens acts into a 2D tensor, applies f, then unflattens so that all
-        dimesnions except innermost are unchanged.
+        Utility for applying f to inner dimension of activations.
+        Flattens activations into a 2D tensor, applies f, then unflattens so that all
+        dimensions except innermost are unchanged.
         """
         orig_shape = acts.shape
         acts_flat = acts.reshape([-1, acts.shape[-1]])
