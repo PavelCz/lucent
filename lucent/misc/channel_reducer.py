@@ -88,14 +88,19 @@ class ChannelReducer(object):
         return new_flat.reshape(shape)
 
     def fit(self, acts):
+        """Learn a model of dim reduction for the data. Returns the instance of the
+        compositions itself."""
         self._is_fit = True
         return ChannelReducer._apply_flat(self._reducer.fit, acts)
 
     def fit_transform(self, acts):
+        """Learn a model of dim reduction for the data. Returns the actual reduced
+        data."""
         self._is_fit = True
         return ChannelReducer._apply_flat(self._reducer.fit_transform, acts)
 
     def transform(self, acts):
+        """Return the data as it was learned."""
         return ChannelReducer._apply_flat(self._reducer.transform, acts)
 
     def __call__(self, acts):
